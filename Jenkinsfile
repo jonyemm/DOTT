@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< HEAD
   agent any
   stages {
     stage('One') {
@@ -6,6 +7,17 @@ pipeline {
         echo 'Step One'
       }
     }
+=======
+	agent any
+		stages {
+			stage('One') {
+				steps {
+					
+						echo "Step One ARca"
+					
+				}
+			}
+>>>>>>> 8662dc4 (adding Jenkinsfile)
 
     stage('Two') {
       steps {
