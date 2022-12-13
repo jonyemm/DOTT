@@ -1,19 +1,10 @@
 pipeline {
-    agent {
-        node {
-            label 'my_local_server'
-            customWorkspace '/projects/'
-        }
-    }
+    agent { docker { image 'python:3.5.1' } }
     stages {
-        stage('Checkout project') {
+        stage('build') {
             steps {
-                script {
-                    git branch: "master",
-                        credentialsId: 'my-credentials',
-                        url: 'https://user@github.org/myproject/sample-repo.git'
-                }
+                powershell 'python --version'
             }
         }
-    }
+     }
 }
