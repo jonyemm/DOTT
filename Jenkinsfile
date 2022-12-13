@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage ('Test'){
+        stage ('Testing'){
             steps{
                 sh 'py.test --verbose --junit-xml test-reports/results.xml cidr_convert_api/python/api.py'
             }
