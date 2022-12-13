@@ -5,4 +5,15 @@ pipeline {
             customWorkspace '/projects/'
         }
     }
+    stages {
+        stage('Checkout project') {
+            steps {
+                script {
+                    git branch: "master",
+                        credentialsId: 'my-credentials',
+                        url: 'https://user@github.org/myproject/sample-repo.git'
+                }
+            }
+        }
+    }
 }
