@@ -7,7 +7,7 @@ pipeline {
             steps {
               	sh 'python --version'
 		sh 'python -m py_compile cidr_convert_api/python/api.py'
-		stash (name: 'compiled-results', includes 'cidr_convert_api/python/api.py')
+		stash (name: 'compiled-results', includes: 'cidr_convert_api/python/api.py')
             }
         }
     }
