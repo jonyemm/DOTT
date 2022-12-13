@@ -1,7 +1,7 @@
 pipeline {
 	agent { docker { image 'python:3.5.1' } }
 		stages {
-			stage('One') {
+			stage('BUILD') {
 				steps {
 					
 						echo "Step One"
