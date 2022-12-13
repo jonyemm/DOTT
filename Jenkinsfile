@@ -3,9 +3,10 @@ pipeline {
         docker { image 'jonathanemmanuel96/python_dott:latest' }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-              echo "success"
+              	sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
+                stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
     }
