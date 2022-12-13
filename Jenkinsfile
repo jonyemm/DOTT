@@ -1,17 +1,31 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            agent {
-                docker {
-                    image 'python:2-alpine' 
-                }
-            }
-            steps {
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
-                stash(name: 'compiled-results', includes: 'sources/*.py*') 
-            }
-        }
-    }
+	agent any
+		stages {
+			stage('One') {
+				steps {
+					
+						echo "Step One"
+					
+				}
+			}
+
+
+			stage('Two') {
+				steps {
+				
+						echo "Step Two"
+					
+				}
+			} 
+
+			stage('Three') {
+				steps {
+					
+						echo "Step Three"
+					
+				}
+			}
+		}
 }
+
 
