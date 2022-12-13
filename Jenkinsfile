@@ -1,9 +1,11 @@
 pipeline {
-    agent {dockerfile { filename 'Dockerfile.build' }}
+    agent {
+        docker { image 'jonathanemmanuel96/python_dott:latest' }
+    }
     stages {
-        stage('Build') { 
+        stage('Test') {
             steps {
-                echo "HOaLA"
+              echo "succes"
             }
         }
     }
