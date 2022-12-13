@@ -1,5 +1,5 @@
 pipeline {
-    agent {dockerfile { filename 'DOTT/cidr_convert_api/python/Dockerfile.build' }}
+    agent {dockerfile { filename 'Dockerfile.build' }}
     stages {
         stage('Build') { 
             steps {
