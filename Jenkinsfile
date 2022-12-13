@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
               	sh 'python --version'
-		sh 'python cidr_convert_api/python/api.py'
+		sh 'python -m py_compile cidr_convert_api/python/api.py'
             }
         }
     }
