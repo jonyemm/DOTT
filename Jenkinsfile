@@ -13,7 +13,7 @@ pipeline {
 
         stage ('Test'){
             steps{
-                sh 'py.test --verbose --junit-xml test-reports/results.xml '
+                echo "Hola mundo"
             }
         }
     }
