@@ -13,10 +13,9 @@ pipeline {
 
         stage ('Analysis'){
             steps{
+		sh "nosetests -sv --with-xunit --xunit-file=nosetests.xml --with-xcoverage --xcoverage-file=coverage.xml"
                 withSonarQubeEnv(installationName: 'sq1'){
                     echo 'im in'
-		    sh 'mvn -v'
-		    sh 'mvn clean package sonar:sonar'
                 }
             }
         }
