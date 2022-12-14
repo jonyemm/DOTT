@@ -15,7 +15,7 @@ pipeline {
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
                     echo 'im in'
-		    sh 'mvn -version'
+		    sh 'mvn -v'
 		    sh 'mvn clean package sonar:sonar'
                 }
             }
