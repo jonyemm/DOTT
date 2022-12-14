@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage ('Analysiss){
+        stage ('Analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
                     echo 'im in'
