@@ -14,7 +14,9 @@ pipeline {
         stage ('Analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
-                    sh "sq1/bin"
+                   sh "/home/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner 
+                       -Dsonar.host.url=http://44.202.97.152:9000/ -Dsonar.projectName=DOTTPYTHON 
+                       -Dsonar.projectVersion=1.0 -Dsonar.projectKey=DOTTPYTHON -Dsonar.sources=. -Dsonar.projectBaseDir=/home/jenkins/workspace/Python"
                 }
             }
         }
