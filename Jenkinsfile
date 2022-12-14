@@ -13,16 +13,9 @@ pipeline {
 
         stage ('Analysis'){
             steps{
+		def scannerHome = tool 'SonarQube Scanner 2.8';
                 withSonarQubeEnv(installationName: 'sq1'){
-                    echo 'im in SQ'
-		    sh '''$SCANNER_HOME/bin/sonar-scanner \
-         	    -Dsonar.projectKey=projectKey \
-         	    -Dsonar.projectName=projectName \
-         	    -Dsonar.sources=src/ \
-         	    -Dsonar.java.binaries=target/classes/ \
-         	    -Dsonar.exclusions=src/test/java/****/*.java \
-         	    -Dsonar.java.libraries=/var/lib/jenkins/.m2/**/*.jar \
-         	    -Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''		
+		 sh "${scannerHome}/bin/sonar-scanner"   		
                 }
             }
         }
