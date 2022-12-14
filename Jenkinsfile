@@ -14,7 +14,7 @@ pipeline {
         stage ('Analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
-                    sh "sq1/bin/sonar-scanner"
+                    sh "which sonar-scanner"
                 }
             }
         }
