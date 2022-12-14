@@ -11,9 +11,11 @@ pipeline {
             }
         }
 
-        stage ('Test'){
+        stage ('Analysis'){
             steps{
-                echo "Hola mundo"
+                withSonarQubeEnv(installationName: 'sq1'){
+                    echo 'im in'
+                }
             }
         }
     }
