@@ -15,6 +15,7 @@ pipeline {
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
                     echo 'im in'
+		    sh "${ tool ("sonar-scanner")}/sonar-scanner -Dproject.settings=sonar-scanner.properties"
                 }
             }
         }
