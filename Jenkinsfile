@@ -2,9 +2,6 @@ pipeline {
     agent {
         docker { image 'jonathanemmanuel96/python_dott:latest' }
     } 
-   tools { 
-        maven 3.8.63.8.63.8.63.8.63.8.63.8.6  
-    }
     stages {
         stage('Build') {
             steps {
