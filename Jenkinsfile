@@ -3,7 +3,7 @@ pipeline {
         docker { image 'jonathanemmanuel96/python_dott:latest' }
     } 
    tools { 
-        maven 'Maven 3.8.6'  
+        maven 'maven 3.8.6'  
     }
     stages {
         stage('Build') {
