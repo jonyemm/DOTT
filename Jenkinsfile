@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { image 'jonathanemmanuel96/python_dott:latest' }
-    } 
+    }
     stages {
         stage('Build') {
             steps {
@@ -11,14 +11,12 @@ pipeline {
             }
         }
 
-        stage ('Analysis'){
-	    def scannerHome = tool 'SonarQube Scanner 2.8';	
-            steps{
-                withSonarQubeEnv(installationName: 'sq1'){
-		 sh "${scannerHome}/bin/sonar-scanner"   		
-                }
+        stage('SonarQube analysis') {
+        // requires SonarQube Scanner 2.8+
+            def scannerHome = tool 'SonarQube Scanner 2.8';
+            withSonarQubeEnv('sq1') {
+                sh "${scannerHome}/bin/sonar-scanner"
             }
         }
     }
 }
-
