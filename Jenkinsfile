@@ -13,7 +13,7 @@ pipeline {
 
         stage ('Analysis'){
             steps{
-		sh "nosetests -sv --with-xunit --xunit-file=nosetests.xml --with-xcoverage --xcoverage-file=coverage.xml"
+		def scannerhome = tool 'sonarqube'
                 withSonarQubeEnv(installationName: 'sq1'){
                     echo 'im in'
                 }
