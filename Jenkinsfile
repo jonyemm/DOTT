@@ -14,7 +14,7 @@ pipeline {
         stage ('Analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
-                   sh "ls /"
+                   sh "ls /home/"
                 }
             }
         }
