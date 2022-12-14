@@ -15,7 +15,7 @@ pipeline {
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
 		   sh "ls /var/jenkins_home/workspace"
-                   sh "sudo var/jenkins_home/plugins/sonnar"
+                   sh "sonnar"
                   }
                }
             }
