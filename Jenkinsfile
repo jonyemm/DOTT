@@ -13,9 +13,16 @@ pipeline {
 
         stage ('Analysis'){
             steps{
-		def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 withSonarQubeEnv(installationName: 'sq1'){
-                    echo 'im in'
+                    echo 'im in SQ'
+		    sh '''$SCANNER_HOME/bin/sonar-scanner \
+         	    -Dsonar.projectKey=projectKey \
+         	    -Dsonar.projectName=projectName \
+         	    -Dsonar.sources=src/ \
+         	    -Dsonar.java.binaries=target/classes/ \
+         	    -Dsonar.exclusions=src/test/java/****/*.java \
+         	    -Dsonar.java.libraries=/var/lib/jenkins/.m2/**/*.jar \
+         	    -Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''		
                 }
             }
         }
