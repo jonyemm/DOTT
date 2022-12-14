@@ -15,7 +15,7 @@ pipeline {
 	def scannerHome = tool 'SonarQube Scanner 2.8';
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
-                    echo 'im in'
+                    sh "sq1/bin/sonar-scanner"
                 }
             }
         }
