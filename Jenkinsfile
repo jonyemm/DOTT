@@ -19,7 +19,7 @@ pipeline {
                  sh ''' ${scannerHome}/bin/sonar-scanner \
                         -Dsonar.organization=311 \
                         -Dsonar.projectKey=DOTT-PYTHON \
-                        -Dsonar.sources=./cidr_convert_api/python/api.py \
+                        -Dsonar.sources=./cidr_convert_api/python/ \
                         -Dsonar.host.url=https://sonarcloud.io '''
                 }
 
