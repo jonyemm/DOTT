@@ -14,7 +14,7 @@ pipeline {
         stage ('Analysis'){
             steps{
                 withSonarQubeEnv(installationName: 'sq1'){
-		   sh "ls -a /var/jenkins_home/"
+		   sh "ls * /var/jenkins_home/"
                    sh "sonar"
                   }
                }
