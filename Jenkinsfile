@@ -13,7 +13,7 @@ pipeline {
 
         stage('SonarQube analysis') {
             steps {
-	    sh "ls /var/jenkins_home/plugins/sonar"
+	    sh "ls /"
 		
             withSonarQubeEnv('sq1') {
             sh "sonarqube/bin/sonar-scanner \
