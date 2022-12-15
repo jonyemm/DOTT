@@ -29,7 +29,7 @@ pipeline {
             stage ('Pytest') {
                 agent { docker { image 'jonathanemmanuel96/python_dott:latest' } }
                 steps{
-                    sh 'pytest --version'
+                    sh 'python --version'
 		    sh 'pip install pytest'
                 }
             }
