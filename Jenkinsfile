@@ -12,6 +12,7 @@ pipeline {
         }
 
         stage('SonarQube analysis') {
+            steps {
             withSonarQubeEnv('sq1') {
             sh "sonarqube/bin/sonar-scanner \
            -D sonar.login=admin \
@@ -19,6 +20,7 @@ pipeline {
            -D sonar.projectKey=sonarqubetest \
            -D sonar.exclusions=vendor/**,resources/**,**/*.java \
            -D sonar.host.url=http://44.202.97.152:9000/"
+            }
           }
         }
     }
