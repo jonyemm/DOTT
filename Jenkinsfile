@@ -13,6 +13,8 @@ pipeline {
 
         stage('SonarQube analysis') {
             steps {
+	    sh "ls /var/jenkins_home/plugins/sonar"
+		
             withSonarQubeEnv('sq1') {
             sh "sonarqube/bin/sonar-scanner \
            -D sonar.login=admin \
