@@ -31,7 +31,7 @@ pipeline {
                 steps{
                     sh 'python --version'
 		    sh 'pip install pytest'
-		    sh 'cidr_convert_api/python/tests.py'
+		    sh 'sudo cidr_convert_api/python/tests.py'
                 }
             }
         }
