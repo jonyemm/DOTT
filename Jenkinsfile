@@ -26,7 +26,7 @@ pipeline {
                 }
             }
 
-            stage ('Pytest') {
+       	    stage ('Pytest') {
                 agent { docker { image 'jonathanemmanuel96/python_dott:latest' } }
                 try{
                     steps{
@@ -34,12 +34,12 @@ pipeline {
                         sh 'pip install pytest'
                         sh 'chmod +x cidr_convert_api/python/tests.py'
                         sh 'py.test --junitxml results.xml cidr_convert_api/python/tests.py'
-                    } catch (Exception e) {
-                        catchError(stageResult: 'FAILURE') {
-                            sh "exit 1"
-                        }
-                        echo "< Build Failed >"
                     }
+                }  catch (Exception e) {
+                    catchError(stageResult: 'FAILURE') {
+                        sh "exit 1"
+                    }
+                    echo "< Build Failed >"
                 }
             }
         }
