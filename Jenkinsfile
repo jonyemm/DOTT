@@ -35,11 +35,11 @@ pipeline {
                     sh 'py.test --junitxml results.xml cidr_convert_api/python/tests.py'
                 }
             }
-         }
-	
-	 stage('Deployment') {
-	  steps{
-	    sh 'echo Deploying'
-	  }
-	 } 
+
+            stage('Deploy'){
+                steps{
+                    sh 'echo hola'
+                }
+            }
+      }
     }
