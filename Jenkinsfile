@@ -13,17 +13,10 @@ pipeline {
 
         stage('SonarQube analysis') {
             steps {
-	    sh "ls /"
-	    sh "ls /bin"
-	    sh " which sonar" 
-		
-            withSonarQubeEnv('sq1') {
-            sh "sonarqube/bin/sonar-scanner \
-           -D sonar.login=admin \
-           -D sonar.password=admin \
-           -D sonar.projectKey=sonarqubetest \
-           -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-           -D sonar.host.url=http://44.202.97.152:9000/"
+		withSonarQubeEnv(installationName: 'sq1', credentialsId: 'jenkins-sonar') {
+                	sh 'mvn clean package sonar:sonar'
+                }
+
             }
           }
         }
