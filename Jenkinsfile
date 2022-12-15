@@ -32,6 +32,7 @@ pipeline {
                     sh 'python --version'
 		    sh 'pip install pytest'
 		    sh 'chmod +x cidr_convert_api/python/tests.py'
+		    sh 'python -m pytest --junitxml=test.xml'
                 }
             }
         }
