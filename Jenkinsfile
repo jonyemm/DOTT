@@ -40,9 +40,6 @@ pipeline {
             stage('Deploy'){
                 steps{
                     sh '''
-			docker login
-			username: jonathanemmanuel96
-			password: ladygaga1596
 			docker tag dottpython jonathanemmanuel96/dottpython
 		       	docker push  jonathanemmanuel96/dottpython
 			'''
