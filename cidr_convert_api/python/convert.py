@@ -10,7 +10,13 @@ class CidrMaskConvert:
         return val
 
     def mask_to_cidr(self, val):
-        return val
+        mask_list = val.split(".")
+        check =  IpValidate().ipv4_validation(val)
+        binary = [bin(int(i))[2:].count('1') for i in mask_list]
+        if not check or binary[0] ==3:
+            return 'Invalid'
+        val = sum(binary) if sum(binary) > 0 else 'Invalid'
+        return  str(val)
 
 class IpValidate:
 
