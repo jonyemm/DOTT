@@ -39,7 +39,9 @@ pipeline {
 
             stage('Deploy'){
                 steps{
-                    sh 'echo hola'
+                    sh '''
+			docker tag mi_api:latest jonyemm/mi_api:latest
+		       '''
                 }
             }
       }
