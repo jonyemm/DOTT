@@ -21,4 +21,7 @@ class CidrMaskConvert:
 class IpValidate:
 
     def ipv4_validation(self, val):
-        return True
+
+        octets = val.split(".")
+        return len(octets) == 4 and \
+           all(o.isdigit() and 0 <= int(o) < 256 for o in octets)
