@@ -40,7 +40,7 @@ pipeline {
             stage('Deploy'){
                 steps{
                     sh '''
-			docker tag dottpython:latest jonathanemmanuel96/dottpython:latest
+			docker tag dottpython jonathanemmanuel96/dottpython
 		       	docker push jonathanemmanuel96/dottpython
 			'''
                 }
