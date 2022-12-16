@@ -4,13 +4,12 @@ pipeline {
         scannerHome = tool 'sonarqube';
     }
     stages {
-            stage('Build') {
+           stage('Build') {
+            agent { docker { image 'jonathanemmanuel96/python_dott:latest' } }
                 steps {
-                    sh '''
-			  cd ./cidr_convert_api/python/  
-			  docker build . -t dottpython
-		       '''
-		
+                    sh 'python --version'
+                    sh 'python -m py_compile cidr_convert_api/python/api.py'
+                    stash (name: 'compiled-results', includes: 'cidr_convert_api/python/api.py')
                 }
             }
 
