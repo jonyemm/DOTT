@@ -38,15 +38,13 @@ pipeline {
             }
 
             stage('Deploy'){
-                steps{
-		   withDockerRegistry([ credentialsId:DOCKERHUB_CREDENTIALS, url: "https://index.docker.io/v1/" ]){ 
+                steps{ 
                     sh '''
 			cd ./cidr_convert_api/python/
 			docker build -t dottpython .
 			docker tag dottpython jonathanemmanuel96/dottpython
-		       	docker login -u $DOCKERHUB_CREDENTIALS
 			'''
-			}
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 }
             }
       }
