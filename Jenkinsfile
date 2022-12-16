@@ -45,6 +45,7 @@ pipeline {
 			docker tag dottpython jonathanemmanuel96/dottpython
 			'''
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			sh ' docker push jonathanemmanuel96/dottpython'
                 }
             }
       }
