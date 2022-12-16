@@ -2,6 +2,7 @@ pipeline {
  agent any
     environment {
         scannerHome = tool 'sonarqube';
+	DOCKERHUB_CREDENTIALS=credentials('dockerhub1')
     }
     stages {
            stage('Build') {
@@ -39,8 +40,10 @@ pipeline {
             stage('Deploy'){
                 steps{
                     sh '''
+			cd ./cidr_convert_api/python/
+			docker build -t dottpython .
 			docker tag dottpython jonathanemmanuel96/dottpython
-		       	docker push  jonathanemmanuel96/dottpython
+		       	docker login -u $DOCKERHUB_CREDENTIALS
 			'''
                 }
             }
