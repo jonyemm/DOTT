@@ -8,7 +8,7 @@ pipeline {
                 steps {
                     sh '''
 			  cd ./cidr_convert_api/python/  
-			  docker build . -t mi_api 
+			  docker build . -t dottpython
 		       '''
 		
                 }
@@ -40,8 +40,8 @@ pipeline {
             stage('Deploy'){
                 steps{
                     sh '''
-			docker tag mi_api:latest jonyemm/mi_api:latest
-		       	docker push jonyemm/mi_api:latest
+			docker tag dottpython:latest jonathanemmanuel96/dottpython:latest
+		       	docker push jonathanemmanuel96/dottpython:latest
 			'''
                 }
             }
