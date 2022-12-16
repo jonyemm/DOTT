@@ -6,10 +6,10 @@ pipeline {
     stages {
             stage('Build') {
                 steps {
-                    sh '
+                    sh '''
 			  cd ./cidr_convert_api/python/  
 			  docker build . -t mi_api 
-		       '
+		       '''
 		
                 }
             }
