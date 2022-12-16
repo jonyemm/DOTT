@@ -41,7 +41,7 @@ pipeline {
                 steps{
                     sh '''
 			docker tag dottpython:latest jonathanemmanuel96/dottpython:latest
-		       	docker push jonathanemmanuel96/dottpython:latest
+		       	docker push jonathanemmanuel96/dottpython
 			'''
                 }
             }
