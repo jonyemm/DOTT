@@ -41,7 +41,8 @@ pipeline {
                 steps{
                     sh '''
 			docker tag mi_api:latest jonyemm/mi_api:latest
-		       '''
+		       	docker push jonyemm/mi_api:latest
+			'''
                 }
             }
       }
