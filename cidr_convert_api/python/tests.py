@@ -21,7 +21,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_invalid_cidr_to_mask(self):
-        self.assertEqual('Invalid', self.convert.cidr_to_mask('34.227.116.58'))
+        self.assertEqual('Invalid', self.convert.cidr_to_mask('0'))
         self.assertEqual('Invalid', self.convert.cidr_to_mask(-1))
         self.assertEqual('Invalid', self.convert.cidr_to_mask(33))
 
